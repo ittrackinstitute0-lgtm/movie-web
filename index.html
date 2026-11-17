@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AURANGZEB MIRANI GTA 6 - Official Free PC Download Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,900&family=Permanent+Marker&family=Bebas+Neue&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- React 18 & ReactDOM & Babel for JSX -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/framer-motion@10.16.16/dist/framer-motion.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vicePink: '#ff2a85',
+            vicePurple: '#7b1fa2',
+            viceViolet: '#2b0938',
+            viceCyan: '#00f0ff',
+            viceOrange: '#ff6b35',
+            viceYellow: '#ffea00',
+            rockstarGold: '#fca311',
+            darkBg: '#090514'
+          },
+          fontFamily: {
+            gta: ['Bebas Neue', 'sans-serif'],
+            marker: ['Permanent Marker', 'cursive'],
+            tech: ['Orbitron', 'sans-serif'],
+            sans: ['Montserrat', 'sans-serif']
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(2deg)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { filter: 'drop-shadow(0 0 15px rgba(255, 42, 133, 0.8)) drop-shadow(0 0 30px rgba(0, 240, 255, 0.6))' },
+              '50%': { filter: 'drop-shadow(0 0 25px rgba(255, 107, 53, 0.9)) drop-shadow(0 0 50px rgba(255, 42, 133, 0.9))' }
+            },
+            shake: {
+              '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+              '10%, 30%, 50%, 70%, 90%': { transform: 'translate(-10px, -6px) rotate(-3deg)' },
+              '20%, 40%, 60%, 80%': { transform: 'translate(10px, 6px) rotate(3deg)' }
+            },
+            glitch: {
+              '0%': { clipPath: 'inset(40% 0 61% 0)', transform: 'skew(0.5deg)' },
+              '20%': { clipPath: 'inset(92% 0 1% 0)', transform: 'skew(-0.8deg)' },
+              '40%': { clipPath: 'inset(10% 0 80% 0)', transform: 'skew(1.2deg)' },
+              '60%': { clipPath: 'inset(65% 0 10% 0)', transform: 'skew(-1deg)' },
+              '80%': { clipPath: 'inset(25% 0 55% 0)', transform: 'skew(0.8deg)' },
+              '100%': { clipPath: 'inset(30% 0 40% 0)', transform: 'skew(0deg)' }
+            }
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            pulseGlow: 'pulseGlow 2.5s infinite',
+            shake: 'shake 0.45s ease-in-out infinite',
+            glitch: 'glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090514;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #ff2a85, #ff6b35);
+      border-radius: 4px;
+    }
+    body {
+      background-color: #090514;
+      color: #ffffff;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .neon-text-pink {
+      text-shadow: 0 0 10px #ff2a85, 0 0 20px #ff2a85, 0 0 40px #ff2a85;
+    }
+    .neon-text-cyan {
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+    }
+    .neon-text-yellow {
+      text-shadow: 0 0 10px #ffea00, 0 0 20px #ffea00, 0 0 40px #ff6b35;
+    }
+    .neon-border {
+      box-shadow: 0 0 15px rgba(255, 42, 133, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+    .vice-gradient {
+      background: linear-gradient(135deg, #ff2a85 0%, #ff6b35 50%, #9c27b0 100%);
+    }
+    .vice-bg-mesh {
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 42, 133, 0.35) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(123, 31, 162, 0.3) 0%, transparent 60%),
+        linear-gradient(180deg, #090514 0%, #170729 40%, #2b0938 75%, #42103e 90%, #ff6b35 100%);
+    }
+    /* CRT Scanline Effect */
+    .scanlines::after {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      z-index: 40;
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="scanlines">
+  <div id="root"></div>
+
+  <!-- Audio Engine & App Logic in JSX -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+    const { motion, AnimatePresence } = window.Motion || window.FramerMotion;
+
+    // --- Web Audio Synthesizer (Instant, 100% offline, crystal clear sounds) ---
+    class SoundEngine {
+      constructor() {
+        this.ctx = null;
+        this.isMuted = false;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        }
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      // 1. Cartoon Click Pop
+      playPop() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(450, now);
+        osc.frequency.exponentialRampToValueAtTime(950, now + 0.08);
+
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.08);
+      }
+
+      // 2. Loud Funny "FAHHHH / AIRHORN / FART / SLIDE" Sound
+      playFahhh() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+
+        // Airhorn blast style harmonic brass + funny squelch
+        const freqs = [311.13, 370.0, 466.16, 622.25]; // D# chord
+        freqs.forEach((f, idx) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const filter = this.ctx.createBiquadFilter();
+
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(f, now);
+          // Vibrato wobble
+          osc.frequency.linearRampToValueAtTime(f * 0.94, now + 0.5);
+          osc.frequency.linearRampToValueAtTime(f * 1.05, now + 0.8);
+          osc.frequency.linearRampToValueAtTime(f * 0.5, now + 1.4); // Funny sad drop
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(2800, now);
+          filter.frequency.exponentialRampToValueAtTime(300, now + 1.4);
+
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.setValueAtTime(0.35, now + 0.7);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(this.ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 1.4);
+        });
+
+        // Add a distorted low slide ("FAHHHH!")
+        const lowOsc = this.ctx.createOscillator();
+        const lowGain = this.ctx.createGain();
+        lowOsc.type = 'triangle';
+        lowOsc.frequency.setValueAtTime(240, now);
+        lowOsc.frequency.exponentialRampToValueAtTime(55, now + 1.2);
+
+        lowGain.gain.setValueAtTime(0.6, now);
+        lowGain.gain.exponentialRampToValueAtTime(0.01, now + 1.2);
+
+        lowOsc.connect(lowGain);
+        lowGain.connect(this.ctx.destination);
+        lowOsc.start(now);
+        lowOsc.stop(now + 1.2);
+      }
+
+      // 3. Iconic "Bruh" Sound Synthesis (Deep funny vocal resonant formant)
+      playBruh() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        // Pitch drop: 115Hz down to 80Hz like "bruh"
+        osc.frequency.setValueAtTime(125, now);
+        osc.frequency.exponentialRampToValueAtTime(82, now + 0.55);
+
+        // Vocal tract formant simulation
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(580, now);
+        filter.Q.setValueAtTime(3.8, now);
+        filter.frequency.exponentialRampToValueAtTime(360, now + 0.5);
+
+        gain.gain.setValueAtTime(0.7, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.6);
+      }
+
+      // 4. Vine Boom (Earthquake sub-bass impact)
+      playVineBoom() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+
+        // Sub bass drop
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(140, now);
+        osc.frequency.exponentialRampToValueAtTime(24, now + 1.1);
+
+        gain.gain.setValueAtTime(1.0, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 1.2);
+
+        // Boom noise burst
+        const bufferSize = this.ctx.sampleRate * 0.4;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (this.ctx.sampleRate * 0.08));
+        }
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+        const noiseFilter = this.ctx.createBiquadFilter();
+        noiseFilter.type = 'lowpass';
+        noiseFilter.frequency.setValueAtTime(350, now);
+
+        const noiseGain = this.ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.5, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(this.ctx.destination);
+        noise.start(now);
+      }
+
+      // 5. Windows Critical Error (Chord: F#4, C5 dissonance)
+      playWindowsError() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+
+        const tones = [370, 520, 680];
+        tones.forEach((freq) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(freq, now);
+
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.5);
+        });
+      }
+
+      // 6. Laugh / Cartoon giggle effect
+      playLaugh() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        for (let i = 0; i < 5; i++) {
+          const t = now + i * 0.09;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(500 + (i % 2 === 0 ? 120 : 0), t);
+          osc.frequency.exponentialRampToValueAtTime(380, t + 0.07);
+
+          gain.gain.setValueAtTime(0.25, t);
+          gain.gain.exponentialRampToValueAtTime(0.01, t + 0.07);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.07);
+        }
+      }
+
+      // 7. Police Siren quick wail
+      playPoliceSiren() {
+        if (this.isMuted) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.linearRampToValueAtTime(1100, now + 0.25);
+        osc.frequency.linearRampToValueAtTime(600, now + 0.5);
+        osc.frequency.linearRampToValueAtTime(1100, now + 0.75);
+        osc.frequency.linearRampToValueAtTime(500, now + 1.0);
+
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 1.0);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 1.0);
+      }
+    }
+
+    const sounds = new SoundEngine();
+
+    // Trigger mobile vibration if available
+    function triggerHaptic(pattern = [100, 50, 150, 50, 200]) {
+      if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+        try {
+          navigator.vibrate(pattern);
+        } catch (e) {}
+      }
+    }
+
+    // --- Funny Quotes & Prank Toast Messages ---
+    const PRANK_NOTIFICATIONS = [
+      "💀 Bro, your GPU is currently praying for mercy!",
+      "🔥 Download paused: Downloading 150GB of pure Florida air!",
+      "🚔 Vice City Police Department detected your IP: 192.168.0.FBI",
+      "😂 Rockstar Games CEO just laughed at this click!",
+      "💾 System alert: Your toaster cannot run GTA 6!",
+      "🌴 Jason & Lucia just drove away with your download link!",
+      "💀 Bro really thought Rockstar released GTA 6 for 0 dollars!",
+      "🌱 Grass Status: UNTOUCHED. Please go outside immediately!"
+    ];
+
+    // --- Main GTA 6 Download Center Component ---
+    function App() {
+      const [isMuted, setIsMuted] = useState(false);
+      const [isDownloading, setIsDownloading] = useState(false);
+      const [downloadProgress, setDownloadProgress] = useState(0);
+      const [progressPhase, setProgressPhase] = useState("Initializing Vice City server...");
+      const [showBroPopup, setShowBroPopup] = useState(false);
+      const [showErrorPopup, setShowErrorPopup] = useState(false);
+      const [showVerificationModal, setShowVerificationModal] = useState(false);
+      const [showActivationModal, setShowActivationModal] = useState(false);
+      const [screenShake, setScreenShake] = useState(false);
+      const [activeToast, setActiveToast] = useState(null);
+      const [activePlayers, setActivePlayers] = useState(694200);
+      const [totalDownloads, setTotalDownloads] = useState(1337420);
+      const [activationKey, setActivationKey] = useState("");
+      const [prankStats, setPrankStats] = useState({ rickrolls: 84920, clownsBaffled: 124800 });
+
+      // Audio mute sync
+      useEffect(() => {
+        sounds.isMuted = isMuted;
+      }, [isMuted]);
+
+      // Global click sound for cartoon responsiveness
+      useEffect(() => {
+        const handleGlobalClick = (e) => {
+          // If not muted and clicking non-critical interactive elements
+          if (!isMuted) {
+            sounds.playPop();
+          }
+        };
+        window.addEventListener('click', handleGlobalClick);
+        return () => window.removeEventListener('click', handleGlobalClick);
+      }, [isMuted]);
+
+      // Online Player counter dynamic ticker
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setActivePlayers(prev => prev + Math.floor(Math.random() * 9) - 4);
+          setTotalDownloads(prev => prev + Math.floor(Math.random() * 3));
+        }, 2200);
+        return () => clearInterval(interval);
+      }, []);
+
+      // Periodic random funny toast notification
+      useEffect(() => {
+        const toastTimer = setInterval(() => {
+          if (!isDownloading && !showBroPopup) {
+            const randomMsg = PRANK_NOTIFICATIONS[Math.floor(Math.random() * PRANK_NOTIFICATIONS.length)];
+            setActiveToast(randomMsg);
+            setTimeout(() => setActiveToast(null), 4000);
+          }
+        }, 9000);
+        return () => clearInterval(toastTimer);
+      }, [isDownloading, showBroPopup]);
+
+      // Confetti burst helper
+      const shootConfetti = () => {
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 120,
+            spread: 90,
+            origin: { y: 0.6 },
+            colors: ['#ff2a85', '#00f0ff', '#ffea00', '#ff6b35']
+          });
+        }
+      };
+
+      // --- Download Flow (The core prank!) ---
+      const handleStartDownload = () => {
+        triggerHaptic([120, 80, 200]);
+        sounds.playPop();
+        setIsDownloading(true);
+        setDownloadProgress(0);
+        setProgressPhase("Connecting to Vice City Cloud Satellites...");
+
+        let cur = 0;
+        const interval = setInterval(() => {
+          cur += Math.floor(Math.random() * 8) + 4;
+          if (cur >= 30 && cur < 60) {
+            setProgressPhase("Downloading Lucia's High-Res Bandana (45 GB)...");
+          } else if (cur >= 60 && cur < 85) {
+            setProgressPhase("Extracting Vice Beach Alligators & Airboats (89 GB)...");
+          } else if (cur >= 85 && cur < 98) {
+            setProgressPhase("Finalizing 150 GB: Compressing Jason's Tank Tops...");
+          }
+
+          if (cur >= 99) {
+            clearInterval(interval);
+            setDownloadProgress(99);
+            setProgressPhase("Verifying with Rockstar North quantum servers...");
+
+            // Sudden abrupt stop and error!
+            setTimeout(() => {
+              sounds.playWindowsError();
+              sounds.playVineBoom();
+              triggerHaptic([300, 100, 300, 100, 500]);
+              setIsDownloading(false);
+              setShowErrorPopup(true);
+            }, 1200);
+          } else {
+            setDownloadProgress(cur);
+          }
+        }, 180);
+      };
+
+      // When they click "OK" or interact from Error, or click Direct Download Prank
+      const triggerBroPopup = () => {
+        setShowErrorPopup(false);
+        setScreenShake(true);
+        sounds.playFahhh();
+        sounds.playVineBoom();
+        triggerHaptic([500, 200, 500, 200, 800]);
+        shootConfetti();
+        setShowBroPopup(true);
+
+        setTimeout(() => {
+          setScreenShake(false);
+        }, 1200);
+      };
+
+      const handleRetryClick = () => {
+        sounds.playBruh();
+        triggerHaptic([200, 100, 200]);
+        setActiveToast("😂 BRUH! There is NO GTA 6 download button in the universe!");
+        setTimeout(() => setActiveToast(null), 3500);
+        // Small laugh
+        setTimeout(() => {
+          sounds.playLaugh();
+        }, 600);
+      };
+
+      const handleFakeVerification = () => {
+        sounds.playPop();
+        setShowVerificationModal(true);
+      };
+
+      const handleFakeActivation = () => {
+        sounds.playPop();
+        setShowActivationModal(true);
+      };
+
+      return (
+        <div className={`min-h-screen relative flex flex-col justify-between selection:bg-vicePink selection:text-white ${screenShake ? 'animate-shake' : ''}`}>
+          
+          {/* Animated Background Mesh with Palms & Neon Sun */}
+          <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden vice-bg-mesh">
+            {/* Retro 80s Grid Sun */}
+            <div className="absolute top-12 left-1/2 -translate-x-1/2 w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-t from-viceYellow via-viceOrange to-vicePink opacity-80 blur-sm flex items-center justify-center animate-pulseGlow">
+              {/* Sun Stripes */}
+              <div className="w-full h-full rounded-full flex flex-col justify-evenly opacity-30">
+                <div className="h-1 bg-darkBg"></div>
+                <div className="h-2 bg-darkBg"></div>
+                <div className="h-3 bg-darkBg"></div>
+                <div className="h-4 bg-darkBg"></div>
+                <div className="h-5 bg-darkBg"></div>
+                <div className="h-6 bg-darkBg"></div>
+              </div>
+            </div>
+
+            {/* Neon Palm Tree silhouettes left and right */}
+            <svg className="absolute bottom-0 -left-12 md:left-6 w-56 md:w-80 opacity-40 fill-darkBg" viewBox="0 0 100 100">
+              <path d="M48 100 Q 52 60 55 25 Q 40 15 25 22 Q 40 28 50 30 Q 30 35 15 48 Q 38 45 52 35 Q 20 60 10 75 Q 35 60 53 45 Q 60 20 75 10 Q 62 25 56 35 Q 75 25 90 28 Q 72 38 58 42 Q 85 50 95 65 Q 72 58 55 50 L 52 100 Z" />
+            </svg>
+
+            <svg className="absolute bottom-0 -right-12 md:right-8 w-60 md:w-84 opacity-35 fill-darkBg transform -scale-x-100" viewBox="0 0 100 100">
+              <path d="M48 100 Q 52 60 55 25 Q 40 15 25 22 Q 40 28 50 30 Q 30 35 15 48 Q 38 45 52 35 Q 20 60 10 75 Q 35 60 53 45 Q 60 20 75 10 Q 62 25 56 35 Q 75 25 90 28 Q 72 38 58 42 Q 85 50 95 65 Q 72 58 55 50 L 52 100 Z" />
+            </svg>
+
+            {/* Floating Laughing Emojis & Neon Dust in background */}
+            <div className="absolute top-1/4 left-10 text-3xl opacity-20 animate-float">🌴</div>
+            <div className="absolute top-1/3 right-16 text-4xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>💀</div>
+            <div className="absolute bottom-1/3 left-1/4 text-3xl opacity-25 animate-float" style={{ animationDelay: '2.5s' }}>😂</div>
+            <div className="absolute top-2/3 right-1/4 text-3xl opacity-20 animate-float" style={{ animationDelay: '0.8s' }}>🚗</div>
+          </div>
+
+          {/* Top Header & Official Rockstar parody branding */}
+          <header className="w-full border-b border-pink-500/20 backdrop-blur-md bg-darkBg/70 sticky top-0 z-30 px-4 py-3 flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              {/* Parody Rockstar 'R*' Yellow Star Logo */}
+              <div className="w-9 h-9 bg-rockstarGold rounded-md flex items-center justify-center font-black text-black text-xl shadow-lg shadow-orange-500/30 transform -rotate-3 hover:rotate-0 transition">
+                R<span className="text-xs -mt-2">★</span>
+              </div>
+              <div>
+                <span className="font-gta tracking-widest text-lg md:text-xl text-white font-bold flex items-center gap-1.5">
+                  AURANGZEB MIRANI <span className="text-vicePink font-tech text-xs border border-vicePink px-1 rounded">GTA 6 EDITION</span>
+                </span>
+                <p className="text-[10px] text-pink-300/70 font-mono hidden sm:block">OFFICIAL AURANGZEB MIRANI GTA 6 DOWNLOAD CENTER v6.0.4</p>
+              </div>
+            </div>
+
+            {/* Quick Actions: Audio Mute & Troll Stats */}
+            <div className="flex items-center space-x-3">
+              {/* Sound Toggle Button */}
+              <button 
+                onClick={(e) => { e.stopPropagation(); setIsMuted(!isMuted); }}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold border transition flex items-center gap-1.5 ${isMuted ? 'bg-red-500/20 border-red-500 text-red-300' : 'bg-vicePink/20 border-vicePink text-pink-200 neon-border'}`}
+                title="Toggle Sound Effects"
+              >
+                <span>{isMuted ? '🔇 MUTED' : '🔊 SFX ON'}</span>
+              </button>
+
+              <button
+                onClick={(e) => { e.stopPropagation(); sounds.playPoliceSiren(); setActiveToast("🚨 VCPD: Stop trying to pirate GTA 6, bro!"); }}
+                className="hidden md:flex bg-vicePurple/50 border border-purple-400/40 text-purple-200 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-vicePurple transition items-center gap-1"
+              >
+                🚔 Police Siren
+              </button>
+            </div>
+          </header>
+
+          {/* Toast Notification Banner */}
+          <AnimatePresence>
+            {activeToast && (
+              <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 max-w-md w-11/12">
+                <div className="bg-gradient-to-r from-vicePurple via-pink-600 to-viceOrange text-white font-bold text-sm px-4 py-3 rounded-xl shadow-2xl border border-white/40 flex items-center justify-between animate-bounce">
+                  <span>{activeToast}</span>
+                  <button onClick={() => setActiveToast(null)} className="ml-2 text-white/80 hover:text-white">✕</button>
+                </div>
+              </div>
+            )}
+          </AnimatePresence>
+
+          {/* MAIN HERO CONTENT */}
+          <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-6 md:py-10 flex flex-col items-center text-center">
+            
+            {/* Top Official Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-pink-500/40 backdrop-blur-md mb-4 text-xs md:text-sm text-pink-300 uppercase tracking-widest font-mono">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
+              AURANGZEB MIRANI PRESENTS • 100% FREE 150GB GTA 6
+            </div>
+
+            {/* GTA VI Iconic Title */}
+            <div className="relative my-2 select-none">
+              <h2 className="text-xl md:text-3xl font-gta tracking-[0.25em] text-cyan-300 font-bold uppercase drop-shadow-md">
+                AURANGZEB MIRANI
+              </h2>
+              <h1 className="text-7xl sm:text-9xl md:text-[12rem] font-black font-gta tracking-tighter leading-none italic bg-gradient-to-br from-vicePink via-viceOrange to-viceYellow bg-clip-text text-transparent neon-text-pink drop-shadow-2xl">
+                GTA 6
+              </h1>
+              <div className="absolute -bottom-2 md:-bottom-4 left-1/2 -translate-x-1/2 bg-darkBg/90 border border-vicePink text-viceCyan font-marker px-4 py-1 rounded-md text-sm md:text-xl transform -rotate-2 whitespace-nowrap shadow-lg">
+                AURANGZEB MIRANI EXCLUSIVE • VICE CITY PC ULTRA
+              </div>
+            </div>
+
+            <p className="mt-8 text-lg sm:text-2xl font-bold font-sans text-pink-100 max-w-2xl text-shadow">
+              "AURANGZEB MIRANI GTA 6 - DOWNLOAD FOR FREE!"
+            </p>
+            <p className="text-xs sm:text-sm text-pink-300/80 max-w-lg mt-1 font-mono">
+              Direct High-Speed P2P Satellite Mirror • Unlimited Bandwidth • 0$ Cost
+            </p>
+
+            {/* Cover Art & Artwork Showcase */}
+            <div className="relative mt-8 w-full max-w-md mx-auto rounded-2xl overflow-hidden border-2 border-vicePink/60 shadow-[0_0_50px_rgba(255,42,133,0.35)] group bg-darkBg/80">
+              {/* Stylized GTA 6 Cover Art simulation */}
+              <div className="h-64 sm:h-72 w-full bg-gradient-to-b from-purple-900 via-pink-900 to-darkBg relative flex flex-col justify-end p-5 overflow-hidden">
+                {/* Cover art background elements */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-500/30 via-transparent to-transparent"></div>
+                
+                {/* Lucia & Jason silhouettes parody */}
+                <div className="absolute inset-x-0 bottom-0 flex justify-center items-end opacity-90">
+                  <div className="w-28 h-48 bg-gradient-to-t from-black to-pink-700/60 rounded-t-full mx-1 transform -rotate-3 border-t-2 border-vicePink/50 flex flex-col items-center justify-start pt-3">
+                    <span className="text-xs font-marker text-viceCyan">JASON 🕶️</span>
+                  </div>
+                  <div className="w-24 h-44 bg-gradient-to-t from-black to-viceOrange/60 rounded-t-full mx-1 transform rotate-2 border-t-2 border-viceOrange/50 flex flex-col items-center justify-start pt-3">
+                    <span className="text-xs font-marker text-viceYellow">LUCIA 🔫</span>
+                  </div>
+                </div>
+
+                {/* Overlaid Cover Badges */}
+                <div className="relative z-10 flex justify-between items-end">
+                  <div className="bg-black/80 backdrop-blur-md border border-viceCyan/60 p-2 rounded-lg text-left">
+                    <p className="text-[10px] text-viceCyan font-mono font-bold">GAME FILE SIZE</p>
+                    <p className="text-xl font-tech font-black text-white">150.00 GB</p>
+                  </div>
+                  <div className="bg-black/80 backdrop-blur-md border border-yellow-400/60 p-2 rounded-lg text-right">
+                    <p className="text-[10px] text-yellow-300 font-mono font-bold">RATING</p>
+                    <p className="text-xl font-black text-yellow-400">MATURE 69+</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Cover Footer Ticker */}
+              <div className="bg-gradient-to-r from-vicePink via-purple-900 to-viceCyan px-4 py-2 flex justify-between items-center text-xs font-mono font-bold text-white">
+                <span>🔥 DIRECT CRACK INCLUDED</span>
+                <span>⚡ 4K 120FPS RAYTRACING</span>
+              </div>
+            </div>
+
+            {/* Live Funny Stats Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl mt-8">
+              <div className="bg-white/5 border border-purple-500/30 backdrop-blur-md rounded-xl p-3">
+                <div className="text-[11px] text-purple-300 font-mono">ONLINE PLAYERS</div>
+                <div className="text-lg md:text-xl font-tech font-bold text-green-400 flex items-center justify-center gap-1.5 mt-0.5">
+                  <span className="w-2 h-2 rounded-full bg-green-400 inline-block animate-ping"></span>
+                  {activePlayers.toLocaleString()}
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-purple-500/30 backdrop-blur-md rounded-xl p-3">
+                <div className="text-[11px] text-purple-300 font-mono">FAKE DOWNLOADS</div>
+                <div className="text-lg md:text-xl font-tech font-bold text-viceCyan mt-0.5">
+                  {totalDownloads.toLocaleString()}
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-purple-500/30 backdrop-blur-md rounded-xl p-3">
+                <div className="text-[11px] text-purple-300 font-mono">CLOWNS BAFFLED</div>
+                <div className="text-lg md:text-xl font-tech font-bold text-yellow-400 mt-0.5">
+                  🤡 {prankStats.clownsBaffled.toLocaleString()}
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-purple-500/30 backdrop-blur-md rounded-xl p-3">
+                <div className="text-[11px] text-purple-300 font-mono">GRASS TOUCHED</div>
+                <div className="text-lg md:text-xl font-tech font-bold text-red-400 mt-0.5">
+                  0.00%
+                </div>
+              </div>
+            </div>
+
+            {/* THE BIG ANIMATED DOWNLOAD BUTTON (MOST IMPORTANT) */}
+            <div className="my-10 w-full max-w-md flex flex-col items-center">
+              <button
+                id="main-download-btn"
+                onClick={handleStartDownload}
+                className="w-full relative group overflow-hidden rounded-2xl p-1 font-extrabold focus:outline-none transition-transform active:scale-95 duration-150"
+              >
+                {/* Glowing neon aura */}
+                <div className="absolute inset-0 bg-gradient-to-r from-vicePink via-viceYellow to-viceCyan rounded-2xl blur-lg opacity-80 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+                
+                {/* Button Face */}
+                <div className="relative px-6 py-5 bg-gradient-to-r from-vicePink via-viceOrange to-purple-800 rounded-xl border-2 border-white/70 shadow-2xl flex flex-col items-center justify-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl animate-bounce">💾</span>
+                    <span className="text-2xl sm:text-3xl font-gta tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                      DOWNLOAD AURANGZEB MIRANI GTA 6 NOW
+                    </span>
+                    <span className="text-3xl animate-bounce">⚡</span>
+                  </div>
+                  <span className="text-xs font-mono text-yellow-200 mt-1 uppercase tracking-widest font-bold">
+                    [ 150 GB • PC INSTALLER • FREE TORRENT ]
+                  </span>
+                </div>
+              </button>
+
+              {/* Direct Prank Button Option */}
+              <button
+                onClick={triggerBroPopup}
+                className="mt-3 text-xs text-pink-300/70 hover:text-vicePink font-mono underline transition"
+              >
+                (Fast Instant Download Mirror #2 - Click if slow)
+              </button>
+            </div>
+
+            {/* Fake System Requirements & Specifications */}
+            <div className="w-full max-w-3xl bg-black/50 border border-purple-900/60 rounded-2xl p-5 md:p-6 text-left backdrop-blur-md mt-4">
+              <div className="flex items-center justify-between border-b border-pink-500/20 pb-3 mb-4">
+                <h3 className="font-tech text-base md:text-lg text-viceCyan font-bold flex items-center gap-2">
+                  <span>⚙️</span> OFFICIAL SYSTEM REQUIREMENTS (LEAKED)
+                </h3>
+                <span className="text-xs font-mono text-pink-400 bg-pink-950/60 px-2.5 py-1 rounded border border-pink-700/40">
+                  MINIMUM SPEC
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                <div className="space-y-2.5">
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">OS:</span>
+                    <span className="text-pink-200 font-bold">Windows 98 or NASA Supercomputer</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">Processor:</span>
+                    <span className="text-pink-200 font-bold">Intel Core i9-999000KF @ 12.0 GHz</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">RAM:</span>
+                    <span className="text-pink-200 font-bold">128 GB RGB Quantum Memory</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5">
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">Graphics:</span>
+                    <span className="text-viceYellow font-bold">NVIDIA RTX 5090 Ti (100GB VRAM)</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">Storage:</span>
+                    <span className="text-viceCyan font-bold">150 GB + Your Soul + Your Grades</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-gray-400">Sound Card:</span>
+                    <span className="text-pink-200 font-bold">Must withstand 200dB FAHHHH sound</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Extra Funny Interactive Features & Modals */}
+            <div className="mt-8 flex flex-wrap justify-center gap-3 w-full max-w-2xl">
+              <button
+                onClick={handleFakeActivation}
+                className="px-4 py-2.5 rounded-xl bg-vicePurple/40 border border-purple-500/50 hover:bg-vicePurple/70 text-purple-200 font-bold text-xs font-mono transition flex items-center gap-2"
+              >
+                🔑 Generate Free CD Key
+              </button>
+
+              <button
+                onClick={handleFakeVerification}
+                className="px-4 py-2.5 rounded-xl bg-vicePink/20 border border-vicePink/40 hover:bg-vicePink/40 text-pink-200 font-bold text-xs font-mono transition flex items-center gap-2"
+              >
+                🛡️ Rockstar 2-Step Verification
+              </button>
+
+              <button
+                onClick={() => {
+                  sounds.playWindowsError();
+                  sounds.playVineBoom();
+                  setActiveToast("💀 Error 0x80085: Your PC is crying!");
+                }}
+                className="px-4 py-2.5 rounded-xl bg-orange-950/40 border border-orange-500/40 hover:bg-orange-900/40 text-orange-200 font-bold text-xs font-mono transition flex items-center gap-2"
+              >
+                ⚠️ Check PC Compatibility
+              </button>
+            </div>
+
+          </main>
+
+          {/* FAKE DOWNLOAD PROGRESS MODAL */}
+          {isDownloading && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+              <div className="w-full max-w-lg bg-darkBg border-2 border-vicePink rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+                {/* Neon header */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-vicePink animate-ping"></span>
+                    <h3 className="font-tech text-lg text-white font-bold tracking-wider">
+                      DOWNLOADING GTA_VI_INSTALLER_ULTRA.EXE
+                    </h3>
+                  </div>
+                  <span className="text-xs font-mono text-viceYellow font-bold">150.00 GB</span>
+                </div>
+
+                {/* Progress bar container */}
+                <div className="w-full h-8 bg-gray-900 rounded-full border border-pink-500/40 overflow-hidden relative p-1">
+                  <div 
+                    className="h-full rounded-full vice-gradient transition-all duration-200 relative flex items-center justify-end pr-2"
+                    style={{ width: `${downloadProgress}%` }}
+                  >
+                    <span className="text-[11px] font-mono font-black text-white drop-shadow">
+                      {downloadProgress}%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Status and telemetry */}
+                <div className="mt-4 text-left font-mono text-xs space-y-1.5">
+                  <p className="text-pink-300 font-bold flex items-center gap-2">
+                    <span className="animate-spin text-sm">⏳</span> {progressPhase}
+                  </p>
+                  <div className="flex justify-between text-gray-400 text-[11px] pt-2 border-t border-white/10">
+                    <span>Speed: 840 MB/s (NASA 5G)</span>
+                    <span>Remaining: {downloadProgress > 90 ? '2 seconds...' : 'Calculating...'}</span>
+                  </div>
+                </div>
+
+                {/* Cancel prank button */}
+                <div className="mt-6 flex justify-end">
+                  <button
+                    onClick={() => {
+                      setIsDownloading(false);
+                      sounds.playPop();
+                    }}
+                    className="text-xs font-mono text-gray-400 hover:text-white px-3 py-1.5 rounded border border-gray-700 hover:border-gray-500 transition"
+                  >
+                    Cancel Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 99% ERROR MODAL ("ERROR 404: GTA 6 NOT FOUND 💀") */}
+          {showErrorPopup && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg animate-shake">
+              <div className="w-full max-w-md bg-darkBg border-4 border-red-600 rounded-2xl p-6 shadow-[0_0_50px_rgba(255,0,0,0.8)] text-center relative">
+                <div className="text-6xl mb-3 animate-bounce">💀</div>
+                <h2 className="text-2xl font-tech font-black text-red-500 tracking-wide uppercase">
+                  ERROR 404: GTA 6 NOT FOUND 💀
+                </h2>
+                <div className="my-4 p-3 bg-red-950/50 border border-red-500/40 rounded-xl text-xs font-mono text-red-200">
+                  <p className="font-bold">CRITICAL SYSTEM MELTDOWN:</p>
+                  <p className="mt-1">Download halted at 99.99%. GTA 6 does not exist on this link because it hasn't even been released on PC yet! 😭</p>
+                </div>
+
+                <div className="space-y-3 mt-5">
+                  <button
+                    onClick={triggerBroPopup}
+                    className="w-full py-3.5 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-500 hover:to-pink-500 text-white font-extrabold font-gta tracking-widest text-xl rounded-xl shadow-lg transition active:scale-95"
+                  >
+                    FIX DOWNLOAD / UNLOCK NOW 😂
+                  </button>
+                  <p className="text-[11px] text-gray-400 font-mono">
+                    Clicking above will report this error to Rockstar Games Support!
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* THE MASTERPIECE PRANK POPUP: "💀 BRO REALLY THOUGHT HE WAS GETTING GTA 6!" */}
+          {showBroPopup && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl">
+              <div className="w-full max-w-lg bg-gradient-to-b from-darkBg via-purple-950 to-pink-950 border-4 border-vicePink rounded-3xl p-6 sm:p-8 text-center shadow-[0_0_80px_rgba(255,42,133,0.9)] relative overflow-hidden">
+                
+                {/* Floating Laughing Emojis */}
+                <div className="absolute top-2 left-4 text-3xl animate-bounce">😂</div>
+                <div className="absolute top-2 right-4 text-3xl animate-bounce" style={{ animationDelay: '0.3s' }}>🤣</div>
+                <div className="absolute bottom-4 left-6 text-2xl animate-spin" style={{ animationDuration: '4s' }}>🤡</div>
+                <div className="absolute bottom-4 right-6 text-2xl animate-float">💀</div>
+
+                {/* Skull Icon Header */}
+                <div className="text-7xl sm:text-8xl mb-3 animate-bounce">
+                  💀
+                </div>
+
+                {/* Headline: Requirement 3 */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-sans leading-tight text-white uppercase drop-shadow-[0_4px_12px_rgba(255,42,133,1)]">
+                  💀 BRO REALLY THOUGHT AURANGZEB MIRANI WAS GIVING GTA 6!
+                </h2>
+
+                <p className="mt-3 text-sm sm:text-base font-marker text-viceYellow">
+                  "Bro, AURANGZEB MIRANI GTA 6 isn't downloading! Go touch some grass 😂"
+                </p>
+
+                {/* Funny Prank Details Box */}
+                <div className="my-5 bg-black/60 border border-vicePink/50 rounded-2xl p-4 text-left font-mono text-xs space-y-2 text-pink-200">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-400">Prank Result:</span>
+                    <span className="text-red-400 font-bold">100% TROLLED 🤡</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-400">GTA 6 Downloaded:</span>
+                    <span className="text-viceCyan font-bold">0.00 Bytes</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-400">Diagnosis:</span>
+                    <span className="text-yellow-300 font-bold">Chronic Hype Syndrome</span>
+                  </div>
+                  <div className="pt-2 border-t border-white/10 text-center text-gray-300 italic">
+                    "Rockstar Games will release GTA 6 when the stars align. Until then, have a good laugh and share this with your friends!"
+                  </div>
+                </div>
+
+                {/* Action Buttons: TRY AGAIN 😂 and Close */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={handleRetryClick}
+                    className="flex-1 py-4 bg-gradient-to-r from-viceYellow via-viceOrange to-vicePink hover:brightness-110 text-darkBg font-black font-gta tracking-widest text-2xl rounded-2xl shadow-xl transition transform active:scale-95"
+                  >
+                    TRY AGAIN 😂
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      sounds.playPop();
+                      setShowBroPopup(false);
+                    }}
+                    className="px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-mono text-xs font-bold rounded-2xl transition"
+                  >
+                    Accept Defeat 🏳️
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* FAKE ACTIVATION KEY MODAL */}
+          {showActivationModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+              <div className="w-full max-w-md bg-darkBg border-2 border-purple-500 rounded-2xl p-6 text-center">
+                <div className="text-4xl mb-2">🔑</div>
+                <h3 className="font-tech text-lg text-purple-300 font-bold">GTA 6 FREE CD-KEY GENERATOR</h3>
+                <p className="text-xs text-gray-400 font-mono mt-1">Generating official 25-digit Rockstar VIP Key...</p>
+                
+                <div className="my-5 p-3 bg-purple-950/60 border border-purple-400/40 rounded-xl font-mono text-base font-bold text-viceYellow tracking-widest select-all">
+                  {activationKey || "GTA6-LMAO-TOUCH-GRASS-2026"}
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      sounds.playBruh();
+                      setActivationKey(`TROLL-${Math.floor(Math.random()*9000+1000)}-CLOWN-9999`);
+                      setActiveToast("😂 CD Key copied to clipboard! (Just kidding!)");
+                    }}
+                    className="flex-1 py-2.5 bg-vicePurple hover:bg-purple-600 text-white font-bold text-xs rounded-xl font-mono transition"
+                  >
+                    Generate Another Key
+                  </button>
+                  <button
+                    onClick={() => setShowActivationModal(false)}
+                    className="px-4 py-2.5 bg-white/10 text-white text-xs rounded-xl font-mono"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* FAKE ROCKSTAR VERIFICATION MODAL */}
+          {showVerificationModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+              <div className="w-full max-w-md bg-darkBg border-2 border-vicePink rounded-2xl p-6 text-center">
+                <div className="text-4xl mb-2">🛡️</div>
+                <h3 className="font-tech text-lg text-vicePink font-bold">ROCKSTAR HUMAN VERIFICATION</h3>
+                <p className="text-xs text-gray-300 font-mono mt-2">
+                  To confirm you are not a Florida alligator, please solve this CAPTCHA:
+                </p>
+
+                <div className="my-4 p-4 bg-white/5 border border-white/10 rounded-xl text-sm font-sans font-bold text-viceYellow">
+                  "Will GTA 6 release before humans land on Mars?"
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => {
+                      sounds.playVineBoom();
+                      sounds.playBruh();
+                      setShowVerificationModal(false);
+                      triggerBroPopup();
+                    }}
+                    className="py-3 bg-pink-600/80 hover:bg-pink-600 rounded-xl font-mono text-xs font-bold text-white transition"
+                  >
+                    YES 🚀
+                  </button>
+                  <button
+                    onClick={() => {
+                      sounds.playFahhh();
+                      setShowVerificationModal(false);
+                      triggerBroPopup();
+                    }}
+                    className="py-3 bg-purple-600/80 hover:bg-purple-600 rounded-xl font-mono text-xs font-bold text-white transition"
+                  >
+                    NO (GTA 7 First) 💀
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* FOOTER & PRANK DISCLAIMER */}
+          <footer className="w-full border-t border-pink-500/20 bg-darkBg/90 backdrop-blur-md px-4 py-6 mt-12 text-center text-xs font-mono text-gray-400">
+            <div className="max-w-4xl mx-auto space-y-2">
+              <p className="text-pink-300 font-bold">
+                ⚠️ LEGAL NOTICE & COMEDY DISCLAIMER:
+              </p>
+              <p className="text-gray-400 text-[11px] leading-relaxed">
+                This website is an interactive comedy prank and parody project. It does NOT download any game files, software, or executables, and collects ZERO user data. All trademarks, Grand Theft Auto, and Rockstar Games logos belong to their respective owners. Please buy the real game when Rockstar Games officially releases it!
+              </p>
+              <div className="pt-2 text-gray-500 text-[10px] flex justify-center items-center gap-4">
+                <span>© 2026 AURANGZEB MIRANI GTA 6 Comedy Labs</span>
+                <span>•</span>
+                <span>No Alligators Were Harmed</span>
+                <span>•</span>
+                <span>Touch Grass Daily 🌱</span>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      );
+    }
+
+    // Render the React application
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
